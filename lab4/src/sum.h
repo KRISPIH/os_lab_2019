@@ -1,7 +1,7 @@
-struct Sum_Args {
+struct SumArgs {
   int *array;
   int begin;
   int end;
 };
 
-int Sum(const struct Sum_Args *args);
+int Sum(const struct SumArgs *args);

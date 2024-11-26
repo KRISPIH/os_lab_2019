@@ -1,0 +1,19 @@
+CC=gcc
+CFLAGS=-I.
+
+all: mutex mutex_off factorial deadlock
+
+mutex: 
+	$(CC) -o mutex mutex.c -lpthread $(CFLAGS)
+
+mutex_off: 
+	$(CC) -o mutex_off mutex_off.c -lpthread $(CFLAGS)
+
+factorial: 
+	$(CC) -o factorial factorial.c -lpthread $(CFLAGS)
+
+deadlock: 
+	$(CC) -o deadlock deadlock.c -lpthread $(CFLAGS)
+
+clean:
+	rm mutex mutex_off factorial deadlock

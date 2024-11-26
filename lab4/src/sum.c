@@ -1,10 +1,11 @@
 #include "sum.h"
-int Sum(const struct Sum_Args *args) {
+#include "stdio.h"
+int Sum(const struct SumArgs *args) {
   int sum = 0;
-  for (int i = args->begin; i < args->end; i++)
-  {
-      sum += args->array[i];
+  for (int i = args->begin; i < args->end; i++) {
+    sum += args->array[i];
+
   }
+  printf("begin=%d, end=%d, sum=%d\n", args->begin, args->end, sum);
   return sum;
 }
-
