@@ -1,3 +1,7 @@
 ./server --port 20001 --tnum 2
 ./server --port 20002 --tnum 2
 ./client --k 5 --mod 100 --servers server.txt
+
+path:
+cd ../../
+cd mnt/c/Users/msi/Desktop/os_lab_2019/lab6/src

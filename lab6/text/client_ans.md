@@ -58,6 +58,11 @@ uint64_t left = k % servers_num;
 ```c
 thread_data[i].begin = ars * i + (left < i ? left : i) + 1;
 thread_data[i].end = ars * (i + 1) + (left < i + 1 ? left : i + 1);
+Это условие можно читать так:
+
+Если выражение left < i + 1 истинно (то есть если left меньше, чем i + 1), то результатом всего выражения будет left.
+Если выражение left < i + 1 ложно (то есть если left больше или равно i + 1), то результатом будет i + 1.
+Таким образом, тернарный оператор проверяет условие и в зависимости от результата возвращает одно из двух значений.
 ```
 
 ---
@@ -84,6 +89,8 @@ pthread_create(&threads[i], NULL, ServerThread, &thread_data[i]);
 
 Задача отправляется в виде массива:
 ```c
+void * memcpy( void * destptr, const void * srcptr, size_t num );
+Функция memcpy копирует num байтов первого блока памяти, на который ссылается указатель srcptr, во второй блок памяти, на который ссылается указатель destptr.
 char task[sizeof(uint64_t) * 3];
 memcpy(task, &begin, sizeof(uint64_t));
 memcpy(task + sizeof(uint64_t), &end, sizeof(uint64_t));
